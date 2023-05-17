@@ -1,25 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
+import UserApp from "./user/userapp";
+import AdminApp from "./admin/adminapp";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  if (localStorage.getItem("sellerid") == null) {
+    return <UserApp />;
+  } else {
+    return <AdminApp />;
+  }
 }
 
 export default App;
